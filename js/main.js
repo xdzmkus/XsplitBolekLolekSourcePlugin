@@ -15,6 +15,27 @@ const options = {
   // password: 'DAY6dSMJ29xiCHD',
 }
 
+function getCommonMatchInfo(splitedValues){
+  return{
+    leftName: splitedValues[0],
+    rightName: splitedValues[1],
+
+    leftMatchPoint: splitedValues[7],
+    rightMatchPoint: splitedValues[8],
+
+    leftFirstKick: splitedValues[12] == 0 ? true : false,
+
+    gameName: splitedValues[14] == "SNKR" ? "snooker" : "pool"
+  }
+}
+
+function getSnookerInfo(splitedValues){
+  return{
+    leftTotalPoint: splitedValues[15],
+    rightTotalPoint: splitedValues[16]
+  }
+}
+
 var xjs = require('xjs');
 
 xjs.ready().then(function() {
@@ -33,9 +54,28 @@ xjs.ready().then(function() {
 
     // Receive messages
     client.on('message', function (topic, message) {
-      // message is Buffer
-      console.log(message.toString())
-      document.getElementById('bolek-lolek-status').innerHTML = message.toString();
+      var splitedValues = message.toString().split('~');
+      var commonMatchInfo = getCommonMatchInfo(splitedValues);
+
+      if (commonMatchInfo.gameName == "snooker"){
+        document.getElementById('score-bar-snooker').style.visibility = "visible";
+        document.getElementById('score-bar-pool').style.visibility = "hidden";
+
+        var snookerInfo = getSnookerInfo(splitedValues)
+        document.getElementById('left-score-' + commonMatchInfo.gameName).innerHTML = commonMatchInfo.leftMatchPoint + " (" + snookerInfo.leftTotalPoint + ")";
+        document.getElementById('right-score-' + commonMatchInfo.gameName).innerHTML = commonMatchInfo.rightMatchPoint + " (" + snookerInfo.rightTotalPoint + ")";
+
+        document.getElementById('left-common-score-snooker').innerHTML = snookerInfo.leftTotalPoint;
+        document.getElementById('right-common-score-snooker').innerHTML = snookerInfo.rightTotalPoint;
+      }
+      else{
+        document.getElementById('left-score-' + commonMatchInfo.gameName).innerHTML = commonMatchInfo.leftMatchPoint;
+        document.getElementById('right-score-' + commonMatchInfo.gameName).innerHTML = commonMatchInfo.rightMatchPoint;
+      }
+
+      document.getElementById('left-name-' + commonMatchInfo.gameName).innerHTML = commonMatchInfo.leftName;
+      document.getElementById('right-name-' + commonMatchInfo.gameName).innerHTML = commonMatchInfo.rightName;
+
       /**  Дмитрий~Константин~Игрок 3~0~0~0~1~6~0~0~0~0~1800~0~SNKR~9~0~1~18~1~2~
         * tocken 1 - игрок 1
         * tocken 2 - игрок 2

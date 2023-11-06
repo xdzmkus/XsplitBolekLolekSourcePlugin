@@ -3,9 +3,37 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <div id="bolek-lolek-status">
-    <h1>Bolek and Lolek in DIAMOND</h1>
+  
+  <div class="flex-parent-element" id="score-bar-pool">
+    <div class="flex-child-element" id="left-info-pool">
+      <div class="player-container">
+        <h4 id="left-name-pool">player1</h4>
+        <h4 id="left-score-pool">0</h4>
+      </div>
+    </div>
+    <div class="flex-child-element" id="right-info-pool">
+      <div class="player-container">
+        <h4 id="right-score-pool">0</h4>
+        <h4 id="right-name-pool">player2</h4>
+      </div>
+    </div>
   </div>
+
+  <div class="flex-parent-element" id="score-bar-snooker">
+    <div class="flex-child-element" id="left-info-snooker">
+      <div class="player-container">
+        <h4 id="left-name-snooker">player1</h4>
+        <h4 id="left-score-snooker">0</h4>
+      </div>
+    </div>
+    <div class="flex-child-element" id="right-info-snooker">
+      <div class="player-container">
+        <h4 id="right-score-snooker">0</h4>
+        <h4 id="right-name-snooker">player2</h4>
+      </div>
+    </div>
+  </div>
+
   <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
   <script src="js/xjs.js"></script>
   <script src="js/main.js"></script>
