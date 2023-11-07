@@ -25,7 +25,7 @@ function getCommonMatchInfo(splitedValues){
 
     leftFirstKick: splitedValues[12] == 0 ? true : false,
 
-    gameName: splitedValues[14] == "SNKR" ? "snooker" : "pool"
+    gameName: splitedValues[14] == "SNKsR" ? "snooker" : "pool"
   }
 }
 
@@ -59,18 +59,18 @@ xjs.ready().then(function() {
 
       if (commonMatchInfo.gameName == "snooker"){
         document.getElementById('score-bar-snooker').style.visibility = "visible";
-        document.getElementById('score-bar-pool').style.visibility = "hidden";
 
         var snookerInfo = getSnookerInfo(splitedValues)
         document.getElementById('left-score-' + commonMatchInfo.gameName).innerHTML = commonMatchInfo.leftMatchPoint + " (" + snookerInfo.leftTotalPoint + ")";
         document.getElementById('right-score-' + commonMatchInfo.gameName).innerHTML = commonMatchInfo.rightMatchPoint + " (" + snookerInfo.rightTotalPoint + ")";
 
-        document.getElementById('left-common-score-snooker').innerHTML = snookerInfo.leftTotalPoint;
-        document.getElementById('right-common-score-snooker').innerHTML = snookerInfo.rightTotalPoint;
+        // document.getElementById('left-common-score-snooker').innerHTML = snookerInfo.leftTotalPoint;
+        // document.getElementById('right-common-score-snooker').innerHTML = snookerInfo.rightTotalPoint;
       }
       else{
         document.getElementById('left-score-' + commonMatchInfo.gameName).innerHTML = commonMatchInfo.leftMatchPoint;
         document.getElementById('right-score-' + commonMatchInfo.gameName).innerHTML = commonMatchInfo.rightMatchPoint;
+        document.getElementById('score-bar-pool').style.visibility = "visible";
       }
 
       document.getElementById('left-name-' + commonMatchInfo.gameName).innerHTML = commonMatchInfo.leftName;
