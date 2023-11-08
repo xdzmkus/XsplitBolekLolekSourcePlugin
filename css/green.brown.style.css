@@ -17,7 +17,7 @@
       /* Стили для первой колонки */
       .column-left-player {
         flex: 3;
-        background-color: #105908;
+        background: linear-gradient(to bottom, #105908, #000000);
         text-align: left;
         border-top-left-radius: 20px;
          border-bottom-left-radius: 20px;
@@ -26,7 +26,7 @@
       /* Стили для второй колонки */
       .column-total-score {
         flex: 1;
-        background-color: #6A5529;
+        background: linear-gradient(to bottom, #6A5529, #240606de);
         border-radius: 10px;
         padding: 10px;
       }
@@ -34,7 +34,7 @@
       /* Стили для третьей колонки */
       .column-right-player {
         flex: 3;
-        background-color: #105908;
+        background: linear-gradient(to bottom, #105908, #000000);
         text-align: right;
           border-top-right-radius: 20px;
         border-bottom-right-radius: 20px;
