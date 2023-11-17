@@ -5,13 +5,13 @@
     * Note that you need to add a path after the connection address, such as /mqtt.
     */
 const url = 'wss://broker.emqx.io:8084/mqtt'
-const topic = 'diamond/lolek/history'
+const topic = 'bolek/status'
 
 // Create an MQTT client instance
 const options = {
   clean: true,
   connectTimeout: 4000,
-  clientId: 'lolek',
+  clientId: 'bolek',
   username: '',
   password: '',
 }
