@@ -68,5 +68,13 @@
         width: 5%;
         text-align: center;
         visibility: hidden;
+        height: 65px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+       }
+
+       .column-break img {
+        max-height: 100%;
+        max-width: 100%;
       }
-  

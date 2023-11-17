@@ -20,7 +20,7 @@
         background: linear-gradient(to bottom, #4295cb, #000000);
         text-align: left;
         border-top-left-radius: 20px;
-         border-bottom-left-radius: 20px;
+        border-bottom-left-radius: 20px;
      }
       
       /* Стили для второй колонки */
@@ -36,7 +36,7 @@
         flex: 3;
         background: linear-gradient(to bottom, #4295cb, #000000);
         text-align: right;
-          border-top-right-radius: 20px;
+        border-top-right-radius: 20px;
         border-bottom-right-radius: 20px;
       }
       
@@ -60,7 +60,7 @@
       /* Стили для счета во фрейме */
       .column-frame-score {
         width: 25%;
-         text-align: center;
+        text-align: center;
      }
       
       /* Стили для указателя разбоя */
@@ -68,5 +68,14 @@
         width: 5%;
         text-align: center;
         visibility: hidden;
+        height: 65px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+       }
+
+       .column-break img {
+        max-height: 100%;
+        max-width: 100%;
       }
   
