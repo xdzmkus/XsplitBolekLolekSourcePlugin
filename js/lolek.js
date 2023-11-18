@@ -87,8 +87,16 @@ xjs.ready().then(function() {
       }
 
       // fill frame scores
-      document.getElementById('ply1-frame-score').innerHTML = commonMatchInfo.player1FramePoint ? commonMatchInfo.player1FramePoint : "";
-      document.getElementById('ply2-frame-score').innerHTML = commonMatchInfo.player2FramePoint ? commonMatchInfo.player2FramePoint : "";
+      if(commonMatchInfo.player1FramePoint == "0" && commonMatchInfo.player2FramePoint == "0")
+      {
+        document.getElementById('ply1-frame-score').innerHTML = "";
+        document.getElementById('ply2-frame-score').innerHTML = "";
+      }
+      else
+      {
+        document.getElementById('ply1-frame-score').innerHTML = commonMatchInfo.player1FramePoint;
+        document.getElementById('ply2-frame-score').innerHTML = commonMatchInfo.player2FramePoint;
+      }
 
       // show who is starting frame
       if (commonMatchInfo.player1Break)
